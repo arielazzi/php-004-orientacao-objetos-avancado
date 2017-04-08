@@ -4,11 +4,10 @@ require_once('mostra-alerta.php');
 mostraAlerta("success");
 mostraAlerta("danger");
 
-function carregaClasse($nomeDaClasse) {
-	require_once("class/".$nomeDaClasse.".php");
-}
+spl_autoload_register(function($nomeDaClasse) {
+    require_once("class/".$nomeDaClasse.".php");
+});
 
-spl_autoload_register("carregaClasse");
 ?>
 <html>
 <head>
