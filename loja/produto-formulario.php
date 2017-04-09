@@ -8,9 +8,11 @@ verificaUsuario();
 $categoria = new Categoria("","","");
 $categoria->setId(1);
 
+$produtoDAO = new ProdutoDAO($conexao);
 $produto = new Produto("", "", "", $categoria, "");
 
-$categorias = listaCategorias($conexao);
+$categoriaDAO = new CategoriaDAO($conexao);
+$categorias = $categoriaDAO->listaCategorias();
 ?>
 	<h1>Adiciona Produto</h1>
     <form action="adiciona-produto.php" method="post">
