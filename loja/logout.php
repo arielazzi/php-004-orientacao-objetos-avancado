@@ -1,7 +1,7 @@
-<?php 
+<?php
+require_once("logica-usuario.php");
 
-include("logica-usuario.php");
 logout();
-$_SESSION['success'] = "Deslogado com Sucesso!";
-header("Location:index.php");
+$_SESSION["success"] = "Deslogado com sucesso.";
+header("Location: index.php");
 die();

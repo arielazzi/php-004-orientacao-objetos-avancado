@@ -1,8 +1,5 @@
 <?php
 
-/**
-* 
-*/
 class Produto {
 
 	private $id;
@@ -13,13 +10,11 @@ class Produto {
 	private $usado;
 
 	function __construct($nome, $preco, $descricao, Categoria $categoria, $usado) {
- 
-		$this->nome      = $nome; 
-		$this->preco     = $preco; 
-		$this->descricao = $descricao; 
-		$this->categoria = $categoria; 
-		$this->usado     = $usado; 
-
+		$this->nome = $nome;
+		$this->preco = $preco;
+		$this->descricao = $descricao;
+		$this->categoria = $categoria;
+		$this->usado = $usado;
 	}
 
 	public function getId() {
@@ -46,41 +41,30 @@ class Produto {
 		return $this->categoria;
 	}
 
-	public function getUsado() {
+	public function isUsado() {
 		return $this->usado;
 	}
 
-	public function isUsado($usado) {
+	public function setUsado($usado) {
 		$this->usado = $usado;
 	}
 
-	public function getTipoProduto() {
-		return $this->tipoProduto;
+	public function precoComDesconto($valor = 0.1) {
+
+		if ($valor > 0 && $valor <= 0.5) {
+			$this->preco -= $this->preco * $valor;
+		}
+
+		return $this->preco;
 	}
 
-	public function setTipoProduto($tipoProduto) {
-		$this->tipoProduto = $tipoProduto;
+	public function temIsbn() {
+		return $this instanceof Livro;
 	}
 
- 	public function precoComDesconto($desconto = 0.1) {
-
- 		if ($desconto < 0 && $desconto > 0.5) {
- 			return $this->preco;
- 		}
-
- 		return $this->preco - ($this->preco * $desconto);
- 	}
-
- 	public function temIsbn() {
- 		return $this instanceof Livro;
- 	}
-
- 	function __toString() {
- 		return "Nome: ".$nome." - Preço: R$ ".$preco;
- 	}
-
- 	// function __destruct() {
- 	// 	echo "Produto Destruido!";
- 	// }
-
+	function __toString() {
+		return $this->nome.": R$ ".$this->preco;
+	}
 }
+
+?>

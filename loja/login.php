@@ -1,18 +1,15 @@
 <?php 
-require_once('banco-usuario.php');
-require_once('logica-usuario.php');
+require_once ("banco-usuario.php");
+require_once("logica-usuario.php");
 
-$usuario = buscaUsuario($conexao, $_POST['email'], $_POST['senha']);
+$usuario = buscaUsuario($conexao, $_POST["email"], $_POST["senha"]);
 
-if ($usuario == null)
-{
-	$_SESSION['danger'] = "Usuário ou senha invalida!";
-	header("Location:index.php");
-}
-else
-{
-	$_SESSION['success'] = "Logado com sucesso!";
-	header("Location:index.php");
-	logaUsuario($_POST['email']);
+if($usuario == null) {
+	$_SESSION["danger"] = "Usuário ou senha inválido.";
+	header("Location: index.php");
+} else {
+	$_SESSION["success"] = "Usuário logado com sucesso.";
+	logaUsuario($usuario["email"]);
+	header("Location: index.php");
 }
 die();

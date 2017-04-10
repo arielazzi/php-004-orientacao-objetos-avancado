@@ -12,12 +12,13 @@
 		</tr>
 		<tr>
 			<td>Mensagem</td>
-			<td><textarea name="mensagem" class="form-control"></textarea></td>
+			<td><textarea class="form-control" name="mensagem"></textarea></td>
 		</tr>
 		<tr>
-			<td><button type="submit" class="btn btn-primary">Enviar</button></td>
+			<td><button class="btn btn-primary">Enviar</button></td>
 		</tr>
 	</table>
+	
 </form>
 
 <?php require_once("rodape.php"); ?>

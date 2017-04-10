@@ -1,6 +1,6 @@
 <?php
 
-Class Categoria {
+class Categoria {
 
 	private $id;
 	private $nome;
@@ -20,4 +20,7 @@ Class Categoria {
 	public function setNome($nome) {
 		$this->nome = $nome;
 	}
+
 }
+
+?>

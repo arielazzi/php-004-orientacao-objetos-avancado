@@ -1,11 +1,8 @@
 <?php
-/**
-* 
-*/
-class Livro extends Produto {
-	
-	private $isbn;
 
+class Livro extends Produto {
+
+	private $isbn;
 
 	public function getIsbn() {
 		return $this->isbn;
@@ -15,3 +12,5 @@ class Livro extends Produto {
 		$this->isbn = $isbn;
 	}
 }
+
+?>
