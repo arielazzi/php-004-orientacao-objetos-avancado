@@ -54,6 +54,14 @@ class Produto {
 		$this->usado = $usado;
 	}
 
+	public function getTipoProduto() {
+		return $this->tipoProduto;
+	}
+
+	public function setTipoProduto($tipoProduto) {
+		$this->tipoProduto = $tipoProduto;
+	}
+
  	public function precoComDesconto($desconto = 0.1) {
 
  		if ($desconto < 0 && $desconto > 0.5) {
@@ -61,6 +69,10 @@ class Produto {
  		}
 
  		return $this->preco - ($this->preco * $desconto);
+ 	}
+
+ 	public function temIsbn() {
+ 		return $this instanceof Livro;
  	}
 
  	function __toString() {

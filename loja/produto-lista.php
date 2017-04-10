@@ -17,6 +17,14 @@ require_once("logica-usuario.php");
 		<td><?=$produto->precoComDesconto(0.1)?></td>
 		<td><?=substr($produto->getDescricao(), 0, 35)?>...</td>
 		<td><?=$produto->getCategoria()->getNome()?></td>
+		<td>
+			<?php
+				if ($produto->temIsbn()){
+					echo "Isbn: ".$produto->getIsbn();
+				}
+			?>
+		</td>
+		<td><?=$produto->getTipoProduto()?></td>
 		<td><a class="btn btn-primary" href="produto-altera-produto.php?id=<?=$produto->getId()?>">Alterar</a></td>
 		<td>
 			<form action="remove-produto.php" method="post">
